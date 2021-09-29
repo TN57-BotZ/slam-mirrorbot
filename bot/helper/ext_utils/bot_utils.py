@@ -148,7 +148,7 @@ def get_readable_message():
                            f" | <b>➜ Peers :</b> <code>{download.aria_download().connections}</code>"
                 except:
                     pass
-                    msg += f'\n<b>➜ Requested By : <a href="tg://user?id={download.message.from_user.id}">{download.message.from_user.first_name}</a></b>'
+                    msg += f"\n<b>➜ Requested By : <a href="tg://user?id={download.message.from_user.id}">{download.message.from_user.first_name}</a></b>"
                 try:
                     msg += f"\n<b>➜ Seeders :</b> <code>{download.torrent_info().num_seeds}</code>" \
                            f" | <b>➜ Leechers :</b> <code>{download.torrent_info().num_leechs}</code>"
