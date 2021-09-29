@@ -96,13 +96,26 @@ def update_all_messages():
         for chat_id in list(status_reply_dict.keys()):
             if status_reply_dict[chat_id] and msg != status_reply_dict[chat_id].text:
                 try:
-                    if buttons == "":
-                        editMessage(msg, status_reply_dict[chat_id])
-                    else:
-                        editMessage(msg, status_reply_dict[chat_id], buttons)
+                    keyboard = [[InlineKeyboardButton("🔃 Refresh Meh", callback_data=str(ONE)),
+                                 InlineKeyboardButton("❌ Close Meh", callback_data=str(TWO)),]]
+                    editMessage(msg, status_reply_dict[chat_id], reply_markup=InlineKeyboardMarkup(keyboard))
                 except Exception as e:
                     LOGGER.error(str(e))
                 status_reply_dict[chat_id].text = msg
+                
+ONE, TWO = range(2)
+
+def refresh(update, context):
+    query = update.callback_query
+    query.answer()
+    query.edit_message_text(text="Refreshing Status 🥱")
+    time.sleep(2)
+    update_all_messages()
+
+def close(update, context):
+    query = update.callback_query
+    query.answer()
+    delete_all_messages()                
 
 
 def sendStatusMessage(msg, bot):
@@ -147,3 +160,6 @@ def sendStatusMessage(msg, bot):
         else:
             message = sendMarkup(progress, bot, msg, buttons)
         status_reply_dict[msg.message.chat.id] = message
+
+dispatcher.add_handler(CallbackQueryHandler(refresh, pattern='^' + str(ONE) + '$'))
+dispatcher.add_handler(CallbackQueryHandler(close, pattern='^' + str(TWO) + '$'))    
