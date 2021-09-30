@@ -154,15 +154,15 @@ def get_readable_message():
                            f" | <b>➜ Leechers :</b> <code>{download.torrent_info().num_leechs}</code>"
                 except:
                     pass
-                msg += f"\n<b>➜ To Cancel :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
-            msg += "\n\n══════════════════════════════════════════"
+                msg += f"\n<b>➜ To Cancel :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n\n══════════════════════════════════════════"
+            msg += "\n\n"
             if STATUS_LIMIT is not None and index == STATUS_LIMIT:
                 break
         if STATUS_LIMIT is not None and dick_no > STATUS_LIMIT:
             msg += f"<b>Page:</b> <code>{PAGE_NO}</code>/<code>{pages}</code> | <b>Tasks:</b> <code>{dick_no}</code>\n"
             buttons = button_build.ButtonMaker()
-            buttons.sbutton("Previous", "Back <--")
-            buttons.sbutton("Next", "Next -->")
+            buttons.sbutton("Back <---", "pre")
+            buttons.sbutton("Next --->", "next")
             button = InlineKeyboardMarkup(buttons.build_menu(2))
             return msg, button
         return msg, ""
