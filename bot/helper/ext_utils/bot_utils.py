@@ -128,7 +128,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
             start = COUNT
         for index, download in enumerate(list(download_dict.values())[start:], start=1):
-            msg += f"<b>▬▬▬  @HiroshiBots ▬▬▬\n\n➜ Filename :</b> <code>{download.name()}</code>"
+            msg += f"<b>▬▬▬▬▬  @HiroshiBots ▬▬▬▬▬\n\n➜ Filename :</b> <code>{download.name()}</code>"
             msg += f"\n<b>➜ Status :</b> <b>{download.status()}</b>"
             if download.status() not in [
                 MirrorStatus.STATUS_ARCHIVING,
@@ -162,7 +162,7 @@ def get_readable_message():
             msg += f"<b>Page:</b> <code>{PAGE_NO}</code>/<code>{pages}</code> | <b>Tasks:</b> <code>{dick_no}</code>\n"
             buttons = button_build.ButtonMaker()
             buttons.sbutton("Back <---", "pre")
-            buttons.sbutton("Next --->", "next")
+            buttons.sbutton("Next --->", "nex")
             button = InlineKeyboardMarkup(buttons.build_menu(2))
             return msg, button
         return msg, ""
