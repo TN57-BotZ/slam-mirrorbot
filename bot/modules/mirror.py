@@ -220,7 +220,7 @@ class MirrorListener(listeners.MirrorListeners):
                 chat_id = str(self.message.chat.id)[4:]
                 msg = f"<b>➜ Name :</b> <a href='https://t.me/c/{chat_id}/{self.uid}'>{link}</a>\n"
                 msg += f'<b>➜ Total Files :</b> {count}\n'
-                msg += f'cc: {uname}\n\n'
+                msg += f'Requested By : {uname}\n\n'
                 fmsg = ''
                 for index, item in enumerate(list(files), start=1):
                     msg_id = files[item]
@@ -291,7 +291,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\n══════════════════════════════════════════\n\n<b>#Uploaded To Team Drive SucessFully✅\n\n🙋🏻‍♂️ Requested By :- {uname}\n\n🏷 Powerded By :- @HiroshiBots || @CF_Linksz\n\n📛 Do Not Share Index Link Publicly 📛</b>'
+                msg += f'\n\n══════════════════════════════════════════\n\n<b>#Uploaded To Team Drive SucessFully✅\n\n🙋🏻‍♂️ Requested By :- {uname}\n\n🏷 Powerded By :- @HiroshiBots || @Hiroshi_Leexh_2_O\n\n📛 Do Not Share Index Link Publicly 📛</b>'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
