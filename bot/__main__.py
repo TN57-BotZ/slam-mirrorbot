@@ -45,8 +45,8 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Main Channel", "https://telegram.dog/HiroshiBots")
-    buttons.buildbutton("Off-Topic", "https://t.me/HiroshiBotsSupport")
+    buttons.buildbutton("Main Channel", "https://telegram.dog/tN57_BotZ")
+    buttons.buildbutton("Off-Topic", "https://t.me/TN57_BotZsupport")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -56,7 +56,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         sendMarkup(
-            '<b>Hello Bruhh !!! \n\n You Are Not Authorized To Use Meh Join : @Hiroshi_CloudZone</b>.',
+            '<b>Hello Bruhh !!! \n\n You Are Not Authorized To Use Meh Join😤 : @TN57_BotZ</b>.',
             context.bot,
             update,
             reply_markup,
@@ -154,9 +154,9 @@ help_string_telegraph = f'''<br>
 <b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
 '''
 help = Telegraph(access_token=telegraph_token).create_page(
-        title='Hiroshi Cloud Zone Bot Commands Help',
-        author_name='Hiroshi_CloudZone',
-        author_url='https://telegram.dog/Hiroshi_CloudZone',
+        title='TN57 BotZ Commands Help',
+        author_name='TN57 Mirror Zone',
+        author_url='https://telegram.dog/Tn57_BoTZ',
         html_content=help_string_telegraph,
     )["path"]
 
