@@ -128,7 +128,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
             start = COUNT
         for index, download in enumerate(list(download_dict.values())[start:], start=1):
-            msg += f"<b>▬▬▬▬▬  @HiroshiBots ▬▬▬▬▬\n\n➜ Filename :</b> <code>{download.name()}</code>"
+            msg += f"<b>▬▬▬▬▬  @TN57_BotZ  ▬▬▬▬▬\n\n➜ Filename :</b> <code>{download.name()}</code>"
             msg += f"\n<b>➜ Status :</b> <b>{download.status()}</b>"
             if download.status() not in [
                 MirrorStatus.STATUS_ARCHIVING,
@@ -154,7 +154,7 @@ def get_readable_message():
                            f" | <b>➜ Leechers :</b> <code>{download.torrent_info().num_leechs}</code>"
                 except:
                     pass
-                msg += f"\n<b>➜ To Cancel :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>\n\n══════════════════════════════════════════"
+                msg += f"\n<b>➜ To Cancel :</b> <code>/{BotCommands.CancelMirror}@TN57_MIRROR2_BOT {download.gid()}</code>\n\n══════════════════════════════════════════"
             msg += "\n\n"
             if STATUS_LIMIT is not None and index == STATUS_LIMIT:
                 break
